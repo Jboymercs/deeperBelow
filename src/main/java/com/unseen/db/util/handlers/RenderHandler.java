@@ -44,4 +44,8 @@ public class RenderHandler {
             }
         });
     }
+
+    public static void registerGeoRenderers() {
+
+    }
 }

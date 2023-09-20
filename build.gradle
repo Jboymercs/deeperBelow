@@ -34,7 +34,7 @@ minecraft {
     //mappings channel: 'snapshot', version: '20171003-1.12'
     mappings channel: 'snapshot', version: '20171003-1.12'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-    
+    accessTransformer = file('src/main/resources/db_at.cfg')
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     // Default run configurations.
@@ -102,7 +102,11 @@ jar {
         ])
     }
 }
-
+jar {
+    manifest {
+        attributes 'FMLAT': 'db_at.cfg'
+    }
+}
 sourceSets {main { output.resourcesDir = output.classesDir}}
 // Example configuration to allow publishing using the maven-publish task
 // This is the preferred method to reobfuscate your jar file

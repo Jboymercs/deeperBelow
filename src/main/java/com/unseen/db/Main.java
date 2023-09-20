@@ -1,8 +1,9 @@
 package com.unseen.db;
 
+import com.unseen.db.init.ModEntities;
+import com.unseen.db.init.ModSoundHandler;
 import com.unseen.db.proxy.CommonProxy;
 import com.unseen.db.util.Reference;
-import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -34,11 +35,13 @@ public class Main
     {
         logger = event.getModLog();
         GeckoLib.initialize();
+        ModEntities.registerEntities();
+
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-
+        ModSoundHandler.registerSounds();
     }
 }
